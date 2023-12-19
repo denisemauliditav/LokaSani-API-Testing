@@ -1,0 +1,267 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": [
+        "data",
+        "message",
+        "status"
+      ],
+      "title": "Welcome"
+    },
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AllEvent"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/Pagination"
+        }
+      },
+      "required": [
+        "allEvents",
+        "pagination"
+      ],
+      "title": "Data"
+    },
+    "AllEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "from_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "to_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "event_name": {
+          "type": "string"
+        },
+        "event_description": {
+          "$ref": "#/definitions/EventDescription"
+        },
+        "address_id": {
+          "type": "null"
+        },
+        "creator_id": {
+          "type": "integer"
+        },
+        "category_id": {
+          "type": "integer"
+        },
+        "creator": {
+          "$ref": "#/definitions/Creator"
+        },
+        "category": {
+          "$ref": "#/definitions/CategoryClass"
+        },
+        "guest": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Guest"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "address_id",
+        "category",
+        "category_id",
+        "creator",
+        "creator_id",
+        "event_description",
+        "event_name",
+        "from_date",
+        "guest",
+        "id",
+        "to_date"
+      ],
+      "title": "AllEvent"
+    },
+    "CategoryClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "category": {
+          "$ref": "#/definitions/CategoryEnum"
+        },
+        "type": {
+          "$ref": "#/definitions/Type"
+        }
+      },
+      "required": [
+        "category",
+        "id",
+        "type"
+      ],
+      "title": "CategoryClass"
+    },
+    "Creator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "outlet_name": {
+          "$ref": "#/definitions/OutletName"
+        },
+        "email": {
+          "$ref": "#/definitions/Email"
+        },
+        "phone_number": {
+          "$ref": "#/definitions/PhoneNumber"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "address_id": {
+          "type": "null"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "address_id",
+        "email",
+        "id",
+        "outlet_name",
+        "phone_number",
+        "user_id"
+      ],
+      "title": "Creator"
+    },
+    "Guest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "event_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "event_id",
+        "id",
+        "name",
+        "role"
+      ],
+      "title": "Guest"
+    },
+    "Pagination": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allPages": {
+          "type": "integer"
+        },
+        "currentPage": {
+          "type": "integer"
+        },
+        "nextPage": {
+          "type": "integer"
+        },
+        "prevPage": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "allPages",
+        "currentPage",
+        "nextPage",
+        "prevPage"
+      ],
+      "title": "Pagination"
+    },
+    "CategoryEnum": {
+      "type": "string",
+      "enum": [
+        "Konser"
+      ],
+      "title": "CategoryEnum"
+    },
+    "Type": {
+      "type": "string",
+      "enum": [
+        "Event"
+      ],
+      "title": "Type"
+    },
+    "Email": {
+      "type": "string",
+      "enum": [
+        "test@gmail.com",
+        ""
+      ],
+      "title": "Email"
+    },
+    "OutletName": {
+      "type": "string",
+      "enum": [
+        "tesst",
+        ""
+      ],
+      "title": "OutletName"
+    },
+    "PhoneNumber": {
+      "type": "string",
+      "enum": [
+        "08234274",
+        ""
+      ],
+      "title": "PhoneNumber"
+    },
+    "EventDescription": {
+      "type": "string",
+      "enum": [
+        "This is taylor swift",
+        "event lokal dari provinsi medan",
+        "This is event the dream show"
+      ],
+      "title": "EventDescription"
+    }
+  }
+}

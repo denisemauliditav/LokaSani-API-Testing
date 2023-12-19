@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": [
+        "data",
+        "message",
+        "status"
+      ],
+      "title": "Welcome"
+    },
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "fromDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "toDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "eventName": {
+          "type": "string"
+        },
+        "eventDescription": {
+          "type": "string"
+        },
+        "addressId": {
+          "type": "null"
+        },
+        "creatorId": {
+          "type": "integer"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "creator": {
+          "$ref": "#/definitions/Creator"
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "guest": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "addressId",
+        "category",
+        "categoryId",
+        "creator",
+        "creatorId",
+        "eventDescription",
+        "eventName",
+        "fromDate",
+        "guest",
+        "id",
+        "toDate"
+      ],
+      "title": "Data"
+    },
+    "Category": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "category": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "id",
+        "type"
+      ],
+      "title": "Category"
+    },
+    "Creator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "outletName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer"
+        },
+        "roleId": {
+          "type": "integer"
+        },
+        "addressId": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "addressId",
+        "email",
+        "id",
+        "outletName",
+        "phoneNumber",
+        "roleId",
+        "userId"
+      ],
+      "title": "Creator"
+    }
+  }
+}

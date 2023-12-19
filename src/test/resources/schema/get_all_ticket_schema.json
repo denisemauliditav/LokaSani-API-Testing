@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Datum"
+          }
+        }
+      },
+      "required": [
+        "data",
+        "message",
+        "status"
+      ],
+      "title": "Welcome"
+    },
+    "Datum": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "type": {
+          "$ref": "#/definitions/Type"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "qty": {
+          "type": "integer"
+        },
+        "name": {
+          "$ref": "#/definitions/Name"
+        },
+        "description": {
+          "$ref": "#/definitions/DescriptionUnion"
+        },
+        "start_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "event_id": {
+          "type": "integer"
+        },
+        "event": {
+          "$ref": "#/definitions/Event"
+        }
+      },
+      "required": [
+        "description",
+        "end_time",
+        "event",
+        "event_id",
+        "id",
+        "name",
+        "price",
+        "qty",
+        "start_time",
+        "type"
+      ],
+      "title": "Datum"
+    },
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "from_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "to_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "event_name": {
+          "$ref": "#/definitions/EventName"
+        },
+        "event_description": {
+          "$ref": "#/definitions/EventDescription"
+        },
+        "address_id": {
+          "type": "null"
+        },
+        "creator_id": {
+          "type": "integer"
+        },
+        "category_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "address_id",
+        "category_id",
+        "creator_id",
+        "event_description",
+        "event_name",
+        "from_date",
+        "id",
+        "to_date"
+      ],
+      "title": "Event"
+    },
+    "DescriptionUnion": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "$ref": "#/definitions/DescriptionEnum"
+        }
+      ],
+      "title": "DescriptionUnion"
+    },
+    "DescriptionEnum": {
+      "type": "string",
+      "enum": [
+        "",
+        "this is band noah",
+        "konser jkt48"
+      ],
+      "title": "DescriptionEnum"
+    },
+    "EventDescription": {
+      "type": "string",
+      "enum": [
+        "This is taylor swift"
+      ],
+      "title": "EventDescription"
+    },
+    "EventName": {
+      "type": "string",
+      "enum": [
+        "Taylor Swift"
+      ],
+      "title": "EventName"
+    },
+    "Name": {
+      "type": "string",
+      "enum": [
+        "",
+        "Noah",
+        "JKT48"
+      ],
+      "title": "Name"
+    },
+    "Type": {
+      "type": "string",
+      "enum": [
+        "VIP",
+        "Regular",
+        "REGULER"
+      ],
+      "title": "Type"
+    }
+  }
+}

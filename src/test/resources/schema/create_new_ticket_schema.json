@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": [
+        "data",
+        "message",
+        "status"
+      ],
+      "title": "Welcome"
+    },
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "qty": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "eventId": {
+          "type": "integer"
+        },
+        "event": {
+          "$ref": "#/definitions/Event"
+        }
+      },
+      "required": [
+        "description",
+        "endTime",
+        "event",
+        "eventId",
+        "id",
+        "name",
+        "price",
+        "qty",
+        "startTime",
+        "type"
+      ],
+      "title": "Data"
+    },
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "fromDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "toDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "eventName": {
+          "type": "string"
+        },
+        "eventDescription": {
+          "type": "string"
+        },
+        "addressId": {
+          "type": "null"
+        },
+        "creatorId": {
+          "type": "integer"
+        },
+        "categoryId": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "addressId",
+        "categoryId",
+        "creatorId",
+        "eventDescription",
+        "eventName",
+        "fromDate",
+        "id",
+        "toDate"
+      ],
+      "title": "Event"
+    }
+  }
+}

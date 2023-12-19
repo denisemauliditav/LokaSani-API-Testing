@@ -1,0 +1,218 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Response",
+  "definitions": {
+    "Response": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": [
+        "data",
+        "message",
+        "status"
+      ],
+      "title": "Response"
+    },
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allProduct": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AllProduct"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/Pagination"
+        }
+      },
+      "required": [
+        "allProduct",
+        "pagination"
+      ],
+      "title": "Data"
+    },
+    "AllProduct": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "stock": {
+          "type": "boolean"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "total_product": {
+          "type": "integer"
+        },
+        "category_id": {
+          "type": "integer"
+        },
+        "creator_id": {
+          "type": "integer"
+        },
+        "creator": {
+          "$ref": "#/definitions/Creator"
+        },
+        "category": {
+          "$ref": "#/definitions/CategoryClass"
+        }
+      },
+      "required": [
+        "category",
+        "category_id",
+        "creator",
+        "creator_id",
+        "description",
+        "id",
+        "name",
+        "price",
+        "status",
+        "stock",
+        "total_product"
+      ],
+      "title": "AllProduct"
+    },
+    "CategoryClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "category": {
+          "$ref": "#/definitions/CategoryEnum"
+        },
+        "type": {
+          "$ref": "#/definitions/Type"
+        }
+      },
+      "required": [
+        "category",
+        "id",
+        "type"
+      ],
+      "title": "CategoryClass"
+    },
+    "Creator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "outlet_name": {
+          "$ref": "#/definitions/OutletName"
+        },
+        "email": {
+          "$ref": "#/definitions/Email"
+        },
+        "phone_number": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "address_id": {
+          "type": "null"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "address_id",
+        "email",
+        "id",
+        "outlet_name",
+        "phone_number",
+        "user_id"
+      ],
+      "title": "Creator"
+    },
+    "Pagination": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allPages": {
+          "type": "integer"
+        },
+        "currentPage": {
+          "type": "integer"
+        },
+        "nextPage": {
+          "type": "integer"
+        },
+        "prevPage": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "allPages",
+        "currentPage",
+        "nextPage",
+        "prevPage"
+      ],
+      "title": "Pagination"
+    },
+    "CategoryEnum": {
+      "type": "string",
+      "enum": [
+        "Clothes"
+      ],
+      "title": "CategoryEnum"
+    },
+    "Type": {
+      "type": "string",
+      "enum": [
+        "Product"
+      ],
+      "title": "Type"
+    },
+    "Email": {
+      "type": "string",
+      "enum": [
+        "test@gmail.com"
+      ],
+      "title": "Email"
+    },
+    "OutletName": {
+      "type": "string",
+      "enum": [
+        "tesst"
+      ],
+      "title": "OutletName"
+    },
+    "Status": {
+      "type": "string",
+      "enum": [
+        "active"
+      ],
+      "title": "Status"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": [
+        "data",
+        "message",
+        "status"
+      ],
+      "title": "Welcome"
+    },
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "stock": {
+          "type": "boolean"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "total_product": {
+          "type": "integer"
+        },
+        "category_id": {
+          "type": "integer"
+        },
+        "creator_id": {
+          "type": "integer"
+        },
+        "creator": {
+          "$ref": "#/definitions/Creator"
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        }
+      },
+      "required": [
+        "category",
+        "category_id",
+        "creator",
+        "creator_id",
+        "description",
+        "id",
+        "name",
+        "price",
+        "status",
+        "stock",
+        "total_product"
+      ],
+      "title": "Data"
+    },
+    "Category": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "category": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "id",
+        "type"
+      ],
+      "title": "Category"
+    },
+    "Creator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "outlet_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone_number": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "address_id": {
+          "type": "null"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "address_id",
+        "email",
+        "id",
+        "outlet_name",
+        "phone_number",
+        "user_id"
+      ],
+      "title": "Creator"
+    }
+  }
+}

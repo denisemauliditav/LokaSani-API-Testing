@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": [
+        "data",
+        "message",
+        "status"
+      ],
+      "title": "Welcome"
+    },
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "qty": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "event_id": {
+          "type": "integer"
+        },
+        "event": {
+          "$ref": "#/definitions/Event"
+        }
+      },
+      "required": [
+        "description",
+        "end_time",
+        "event",
+        "event_id",
+        "id",
+        "name",
+        "price",
+        "qty",
+        "start_time",
+        "type"
+      ],
+      "title": "Data"
+    },
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "from_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "to_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "event_name": {
+          "type": "string"
+        },
+        "event_description": {
+          "type": "string"
+        },
+        "address_id": {
+          "type": "null"
+        },
+        "creator_id": {
+          "type": "integer"
+        },
+        "category_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "address_id",
+        "category_id",
+        "creator_id",
+        "event_description",
+        "event_name",
+        "from_date",
+        "id",
+        "to_date"
+      ],
+      "title": "Event"
+    }
+  }
+}
+
